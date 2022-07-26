@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:48:20 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:11:09 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "stack.h"
-#include "doubly_linked_list.h"
+#include "dll.h"
 
 void	stack_print(t_stack *s)
 {

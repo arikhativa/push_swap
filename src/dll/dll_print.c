@@ -6,12 +6,12 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:09:36 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:22:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "doubly_linked_list.h"
+#include "dll.h"
 
 void	dll_print(t_dll *lst)
 {

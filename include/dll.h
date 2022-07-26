@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   doubly_linked_list.h                               :+:      :+:    :+:   */
+/*   dll.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:50:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:23:53 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:52:37 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOUBLY_LINKED_LIST_H
-# define DOUBLY_LINKED_LIST_H
+#ifndef DLL_H
+# define DLL_H
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -24,6 +24,9 @@ typedef struct	s_dll
 	t_dll	*next;
 	t_dll	*prev;
 }				t_dll;
+
+// is
+int	dll_is_last_elem(t_dll *elem);
 
 // print
 void	dll_print(t_dll *lst);

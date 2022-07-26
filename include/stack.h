@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:35:19 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:56:59 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define STACK_H
 
 # include <stdlib.h>
-# include "doubly_linked_list.h"
+# include "dll.h"
 
 typedef struct s_stack
 {

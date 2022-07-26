@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_get.c                                        :+:      :+:    :+:   */
+/*   dll_is.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 12:49:08 by yoav              #+#    #+#             */
+/*   Created: 2022/07/26 13:48:51 by yoav              #+#    #+#             */
 /*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
 #include "dll.h"
 
-t_dll	**stack_get_list(t_stack *s)
+int	dll_is_last_elem(t_dll *elem)
 {
-	return (&(s->lst));
-}
-
-int	stack_get_size(t_stack *s)
-{
-	return (s->size);
+	return (!elem->next && !elem->prev);
 }

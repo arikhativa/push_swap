@@ -6,11 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:03:46 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:29:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doubly_linked_list.h"
+#include "dll.h"
 
 void	dll_add_after(t_dll *lst, t_dll *new_elem)
 {

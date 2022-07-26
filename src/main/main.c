@@ -6,12 +6,12 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:37:13 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
-#include "doubly_linked_list.h"
+#include "dll.h"
 #include "stack.h"
 
 int	main(int ac, char **av)
@@ -26,9 +26,16 @@ int	main(int ac, char **av)
 	stack_push(s, dll_create_elem(3));
 	stack_print(s);
 	e = stack_pop(s);
-	stack_print(s);
-	dll_print(e);
 	dll_free_elem(e);
+	e = stack_pop(s);
+	dll_free_elem(e);
+	e = stack_pop(s);
+	dll_free_elem(e);
+
+	stack_print(s);
+
+	stack_push(s, dll_create_elem(3));
+	stack_print(s);
 	stack_free(s);
 
 	return (SUCCESS);

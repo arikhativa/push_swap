@@ -6,11 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:30:15 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doubly_linked_list.h"
+#include "dll.h"
 
 t_dll	*dll_remove_elem(t_dll *elem)
 {
@@ -30,12 +30,10 @@ t_dll	*dll_remove_elem(t_dll *elem)
 
 t_dll	*dll_remove_last_elem(t_dll *lst)
 {
-	t_dll	*start;
 	t_dll	*next;
 
 	if (!lst)
 		return (NULL);
-	start = lst;
 	next = lst->next;
 	while (next)
 	{
