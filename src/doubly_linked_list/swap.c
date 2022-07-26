@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:32:25 by yoav             ###   ########.fr       */
+/*   Created: 2022/07/26 12:35:03 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/26 12:35:33 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "doubly_linked_list.h"
-#include "stack.h"
-
-int	main(int ac, char **av)
+void	swap(int *a, int *b)
 {
-	t_dll	*l;
-	t_dll	*e;
+	int c;
 
-	l = NULL;
-	dll_add_last(&l, dll_create_elem(1));
-	dll_add_last(&l, dll_create_elem(1));
-	dll_print(l);
-	e = dll_remove_last_elem(l);
-	dll_print(l);
-	dll_print(e);
-	dll_clear_list(e);
-	dll_clear_list(l);
-
-	return (SUCCESS);
+	c = *a;
+	*a = *b;
+	*b = c;
 }

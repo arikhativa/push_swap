@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dll_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:32:25 by yoav             ###   ########.fr       */
+/*   Created: 2022/07/26 12:09:36 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/26 12:12:43 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
+#include "ft_printf.h"
 #include "doubly_linked_list.h"
-#include "stack.h"
 
-int	main(int ac, char **av)
+void	dll_print(t_dll *lst)
 {
-	t_dll	*l;
-	t_dll	*e;
-
-	l = NULL;
-	dll_add_last(&l, dll_create_elem(1));
-	dll_add_last(&l, dll_create_elem(1));
-	dll_print(l);
-	e = dll_remove_last_elem(l);
-	dll_print(l);
-	dll_print(e);
-	dll_clear_list(e);
-	dll_clear_list(l);
-
-	return (SUCCESS);
+	ft_printf("[ ");
+	while (lst)
+	{
+		ft_printf("% 4d", lst->value);
+		lst = lst->next;
+	}
+	ft_printf(" ]\n");
 }

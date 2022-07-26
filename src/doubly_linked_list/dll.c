@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:47:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:00:03 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 12:26:13 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,12 @@ void	dll_free_elem(t_dll *elem)
 
 void	dll_clear_list(t_dll *lst)
 {
-	
-}
-
-t_dll	*list_remove_elem(t_dll *elem)
-{
 	t_dll	*next;
-	t_dll	*prev;
 
-	prev = elem->prev;
-	next = elem->next;
-	if (prev)
-		prev->next = next;
-	if (next)
-		next->prev = prev;
-	elem->next = NULL;
-	elem->prev = NULL;
-	return (elem);
+	while (lst)
+	{
+		next = lst->next;
+		dll_free_elem(lst);
+		lst = next;
+	}
 }
