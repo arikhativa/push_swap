@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_print.c                                      :+:      :+:    :+:   */
+/*   double_stack_rotate.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 12:48:20 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 14:25:08 by yoav             ###   ########.fr       */
+/*   Created: 2022/07/26 14:21:31 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/26 14:22:29 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "double_stack.h"
 #include "stack.h"
-#include "dll.h"
 
-void	stack_print(t_stack *s)
+void	double_stack_rotate_a(t_double_stack *dstack)
 {
-	ft_printf("[%d]\t-\t", stack_get_size(s));
-	dll_print(*stack_get_list(s));
+	stack_rotate(dstack->a);
+}
+
+void	double_stack_rotate_b(t_double_stack *dstack)
+{
+	stack_rotate(dstack->b);
 }

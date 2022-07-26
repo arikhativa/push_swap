@@ -6,37 +6,26 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 14:23:06 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "dll.h"
-#include "stack.h"
+#include "double_stack.h"
 
 int	main(int ac, char **av)
 {
-	t_stack	*s;
-	t_dll	*e;
+	t_double_stack	*dstack;
 
-	s = stack_create();
-	
-	stack_push(s, dll_create_elem(1));
-	stack_push(s, dll_create_elem(2));
-	stack_push(s, dll_create_elem(3));
-	stack_print(s);
-	e = stack_pop(s);
-	dll_free_elem(e);
-	e = stack_pop(s);
-	dll_free_elem(e);
-	e = stack_pop(s);
-	dll_free_elem(e);
+	dstack = double_stack_create();
 
-	stack_print(s);
+	double_stack_push_a(dstack, 1);
+	double_stack_push_a(dstack, 5);
+	double_stack_print(dstack);
+	double_stack_rotate_a(dstack);
+	double_stack_print(dstack);
 
-	stack_push(s, dll_create_elem(3));
-	stack_print(s);
-	stack_free(s);
-
+	double_stack_free(dstack);
 	return (SUCCESS);
 }
