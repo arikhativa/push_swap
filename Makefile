@@ -1,0 +1,47 @@
+
+NAME = push_swap
+
+# ft_printf
+FT_PRINTF_DIR = libft
+
+# libft
+LIBFT_NAME = libft.a
+LIBFT_DIR = libft
+LIBFT_HEAD_DIR = libft/libft
+LIBFT  = $(addprefix $(LIBFT_DIR)/, $(LIBFT_NAME))
+
+# push_swap
+HEAD_DIR = include
+HEAD_NAME = $(wildcard $(HEAD_DIR)/*.h)
+
+SRC = $(wildcard src/**/*.c)
+OBJ = $(SRC:.c=.o)
+
+CC = cc
+CFLAGS = -c -I$(LIBFT_HEAD_DIR) -I$(HEAD_DIR)
+# CFLAGS = -Wall -Werror -Wextra -c -I$(LIBFT_HEAD_DIR) -I$(HEAD_DIR)
+LDFLAGS = -L$(LIBFT_DIR)
+LDLIBS = -lft
+
+.PHONY: clean fclean re all
+
+%.o: %.c
+	$(CC) $(CFLAGS) $< -o $@ 
+
+all: $(NAME)
+
+$(LIBFT):
+	$(MAKE) all -sC ./$(LIBFT_DIR)
+
+$(NAME): $(OBJ) $(LIBFT) $(HEAD_NAME)
+	$(CC) $(LDFLAGS) $(OBJ) $(LDLIBS) -o $@
+
+clean:
+	$(MAKE) clean -sC ./$(LIBFT_DIR)
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(MAKE) fclean -sC ./$(LIBFT_DIR)
+	$(RM) $(NAME)
+
+re: fclean all
