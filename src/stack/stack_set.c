@@ -6,13 +6,42 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:44:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 11:46:11 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:34:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
+#include "define.h"
+#include "doubly_linked_list.h"
+
+void	stack_push(t_stack *s, t_dll *elem)
+{
+	t_dll	**list;
+
+	list = stack_get_list(s);
+	dll_add_last(list, elem);
+	++s->size;
+	return (SUCCESS);
+}
+
+t_dll	*stack_pop(t_stack *s)
+{
+	t_dll	**list;
+	t_dll	*elem;
+
+	if (!s->size)
+		return (NULL);
+	--s->size;
+	list = stack_get_list(s);
+	return (dll_remove_last_elem(*list));
+}
 
 void	stack_rotate(t_stack *s)
 {
-	
+	t_dll	**list;
+	t_dll	*last;
+
+	list = stack_get_list(s);
+	last = dll_remove_last_elem(*list);
+	dll_add_before(*list, last);
 }

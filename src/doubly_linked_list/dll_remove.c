@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:41:58 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 13:30:15 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ t_dll	*dll_remove_elem(t_dll *elem)
 
 t_dll	*dll_remove_last_elem(t_dll *lst)
 {
+	t_dll	*start;
 	t_dll	*next;
 
 	if (!lst)
 		return (NULL);
+	start = lst;
 	next = lst->next;
 	while (next)
 	{

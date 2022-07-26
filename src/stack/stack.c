@@ -6,12 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 11:44:10 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 12:47:04 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "libft.h"
+#include "doubly_linked_list.h"
 
 static void	stack_del_elem(void *elem)
 {
@@ -31,7 +32,7 @@ t_stack	*stack_create(void)
 
 void	stack_free(t_stack *s)
 {
-	ft_lstclear(&(s->lst), stack_del_elem);
+	dll_clear_list(s->lst);
 	ft_bzero(s, sizeof(s));
 	free(s);
 }
