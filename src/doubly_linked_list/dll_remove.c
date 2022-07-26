@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:34:42 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 12:41:58 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ t_dll	*dll_remove_first_elem(t_dll *lst)
 	next = lst->next;
 	if (!next)
 		return (NULL);
-	
-	return (dll_remove_elem(lst));
+	dll_swap_value(lst, next);
+	return (dll_remove_elem(next));
 }

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:03:46 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:34:58 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 12:41:45 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	dll_add_before(t_dll *lst, t_dll *new_elem)
 
 	dll_add_after(lst, new_elem);
 	next = lst->next;
-	swap(&(lst->value), &(next->value));
+	dll_swap_value(lst, next);
 }
 
 void	dll_add_last(t_dll **lst, t_dll *new_elem)

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:50:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 12:35:27 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 12:43:50 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ void	dll_print(t_dll *lst);
 t_dll	*dll_create_elem(int value);
 void	dll_free_elem(t_dll *elem);
 void	dll_clear_list(t_dll *lst);
-t_dll	*dll_remove_elem(t_dll *elem);
-t_dll	*dll_remove_last_elem(t_dll *lst);
+void	dll_swap_value(t_dll *a, t_dll *b);
+
+// add
 void	dll_add_after(t_dll *lst, t_dll *new_elem);
 void	dll_add_before(t_dll *lst, t_dll *new_elem);
 void	dll_add_last(t_dll **lst, t_dll *new_elem);
-void	swap(int *a, int *b);
 
+// remove
+t_dll	*dll_remove_first_elem(t_dll *lst);
+t_dll	*dll_remove_elem(t_dll *elem);
+t_dll	*dll_remove_last_elem(t_dll *lst);
 
 #endif
