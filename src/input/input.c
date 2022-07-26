@@ -6,20 +6,43 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:25:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 14:45:30 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 17:25:31 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "define.h"
+#include "input.h"
 
-int	input_is_valid(char **tab, int size)
+static int	is_only_digit(char *s)
+{
+	if (*s && *s == '-')
+		++s;
+	if (!*s)
+		return (FALSE);
+	while (*s && ft_isdigit(*s))
+		++s;
+	return ('\0' == *s);
+}
+
+int	input_is_valid(int size, char **tab)
 {
 	int	i;
 	int	num;
+	int stt;
 
-	i = 0;
+	if (2 > size)
+		return (FALSE);
+	i = 1;
 	while (i < size)
 	{
-		num = ft_atoi(tab[i]);
+		stt = atoi_overflow(tab[i], &num);
+		if (ERROR == stt)
+			return (FALSE);
+		stt = is_only_digit(tab[i]);
+		if (FALSE == stt)
+			return (FALSE);
+		++i;
 	}
+	return (TRUE);
 }

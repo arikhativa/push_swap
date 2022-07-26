@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.h                                           :+:      :+:    :+:   */
+/*   double_stack_init.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 14:47:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 09:24:14 by yoav             ###   ########.fr       */
+/*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/26 17:25:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_H
-# define INPUT_H
+#include "input.h"
+#include "double_stack.h"
+#include "define.h"
 
-# include <stdarg.h>
+int	double_stack_init(t_double_stack *dstack, int size, char **tab)
+{
+	int	i;
+	int	num;
+	int stt;
 
-# include "libft.h"
-
-int			is_escp(const char *s);
-const char	*skip_escp(const char *s);
-int			is_flag(const char *s);
-int			parse_input(const char *input, t_list **node, va_list list);
-size_t		count_normal_char_len(const char *s);
-
-#endif
+	i = size - 1;
+	while (i)
+	{
+		atoi_overflow(tab[i], &num);
+		if (ERROR == double_stack_push_a(dstack, num))
+			return (ERROR);
+		--i;
+	}
+	return (SUCCESS);
+}

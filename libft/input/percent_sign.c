@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 09:04:31 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 14:03:17 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 17:14:07 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "define.h"
-#include "input.h"
+#include "ft_printf_input.h"
 #include "flag.h"
 
 const char	*skip_escp(const char *s)

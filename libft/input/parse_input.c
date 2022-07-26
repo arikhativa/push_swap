@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 14:11:02 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 17:14:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "printable_mem.h"
 #include "flag.h"
 #include "list.h"
-#include "input.h"
+#include "ft_printf_input.h"
 
 const char	*skip_normal_str(const char *s)
 {

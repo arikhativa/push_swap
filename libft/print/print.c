@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 14:08:19 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 17:14:10 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 
 #include "flag.h"
-#include "input.h"
+#include "ft_printf_input.h"
 #include "define.h"
 #include "libft.h"
 #include "printable_mem.h"

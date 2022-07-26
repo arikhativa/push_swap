@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:21:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 14:43:39 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/26 17:02:52 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	inc(const char *s, int *ret)
 			return (ERROR);
 		tmp = (*s - '0');
 		num += tmp;
-		if (num <= tmp)
+		if (num < tmp)
 			return (ERROR);
 		++s;
 	}
@@ -72,6 +72,11 @@ int	atoi_overflow(const char *nptr, int *ret)
 	s = (char *)nptr;
 	num = 0;
 	s = skip_space(s);
+	if (0 == ft_strncmp("-2147483648", s, 10))
+	{
+		*ret = -2147483648;
+		return (SUCCESS);
+	}
 	s = skip_get_sign(s, &sign);
 	if (ERROR == inc(s, &num))
 		return (ERROR);

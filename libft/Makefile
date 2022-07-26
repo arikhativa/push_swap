@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/07/26 11:40:17 by yoav             ###   ########.fr        #
+#    Updated: 2022/07/26 17:13:50 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ PRIVATE_HEADERS = \
 	flag.h \
 	generic.h \
 	handler.h \
-	input.h \
+	ft_printf_input.h \
 	list.h \
 	print.h \
 	printable_mem.h \
