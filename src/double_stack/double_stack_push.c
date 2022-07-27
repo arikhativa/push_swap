@@ -6,13 +6,10 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:07:39 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/27 14:04:15 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/27 18:07:42 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dll.h"
-#include "define.h"
-#include "stack.h"
 #include "double_stack.h"
 
 int	double_stack_push_a(t_double_stack *dstack, int i)
@@ -30,6 +27,7 @@ void	double_stack_push_a_to_b(t_double_stack *dstack)
 {
 	t_dll	*elem;
 
+	ft_printf("pb\n");
 	elem = stack_pop(dstack->a);
 	stack_push(dstack->b, elem);	
 }
@@ -38,6 +36,7 @@ void	double_stack_push_b_to_a(t_double_stack *dstack)
 {
 	t_dll	*elem;
 
+	ft_printf("pa\n");
 	elem = stack_pop(dstack->b);
 	stack_push(dstack->a, elem);	
 }

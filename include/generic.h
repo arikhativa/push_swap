@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:10:50 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/27 15:11:36 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/27 17:13:39 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 typedef void (*t_handle_push)(t_double_stack *dstack, int *size_a, int *size_b);
 
-void	generic_push(t_double_stack *dstack, int round,	t_handle_push f);
-
+void	generic_push(t_double_stack *dstack, int round,	t_handle_push f, int *size_a, int *size_b);
 
 #endif

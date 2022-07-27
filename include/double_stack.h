@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:59:15 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/27 14:00:10 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/27 18:07:14 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define DOUBLE_STACK_H
 
 # include "stack.h"
+# include "dll.h"
+# include "define.h"
+# include "ft_printf.h"
 
 typedef	struct	s_double_stack
 {
