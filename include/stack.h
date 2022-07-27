@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:56:59 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/27 13:59:11 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_dll	*stack_pop(t_stack *s);
 // get
 t_dll	**stack_get_list(t_stack *s);
 int		stack_get_size(t_stack *s);
+int	stack_get_top_value(t_stack *s);
 
 // print
 void	stack_print(t_stack *s);

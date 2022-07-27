@@ -25,6 +25,9 @@ typedef struct	s_dll
 	t_dll	*prev;
 }				t_dll;
 
+// get
+t_dll	*dll_get_last_elem(t_dll *lst);
+
 // is
 int	dll_is_last_elem(t_dll *elem);
 

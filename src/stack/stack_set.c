@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:44:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 14:20:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/27 13:48:12 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	stack_rotate(t_stack *s)
 	t_dll	**list;
 	t_dll	*last;
 
+	if (0 == s->size || 1 == s->size)
+		return ;
 	list = stack_get_list(s);
 	last = dll_remove_last_elem(*list);
 	dll_add_before(*list, last);

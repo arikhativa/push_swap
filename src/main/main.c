@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 17:23:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/27 13:48:54 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "dll.h"
 #include "double_stack.h"
 #include "ft_printf.h"
+#include "sort.h"
 #include "input.h"
 
 int	main(int ac, char **av)
@@ -32,6 +33,8 @@ int	main(int ac, char **av)
 		ft_printf("ERROR\n");
 		return (ERROR);
 	}
+	double_stack_print(dstack);
+	merge_sort(dstack);
 	double_stack_print(dstack);
 	double_stack_free(dstack);
 	int ret;

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   double_stack_pop.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 11:34:58 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/27 14:05:35 by yrabby           ###   ########.fr       */
+/*   Created: 2022/07/27 13:39:13 by yrabby            #+#    #+#             */
+/*   Updated: 2022/07/27 13:40:37 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "dll.h"
+#include "define.h"
+#include "stack.h"
+#include "double_stack.h"
 
-# define SUCCESS	0
-# define ERROR		-1
-# define TRUE		1
-# define FALSE		(!TRUE)
-# define A_BIG		'A'
-# define B_BIG		'B'
+t_dll	*double_stack_pop_a(t_double_stack *dstack)
+{
+	return (stack_pop(dstack->a));
+}
 
-#endif
+t_dll	*double_stack_pop_b(t_double_stack *dstack)
+{
+	return (stack_pop(dstack->b));
+}

@@ -23,12 +23,15 @@ CFLAGS = -c -I$(LIBFT_HEAD_DIR) -I$(HEAD_DIR) -I$(FT_PRINTF_DIR)
 LDFLAGS = -L$(LIBFT_DIR)
 LDLIBS = -lft
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all test
 
 %.o: %.c
 	$(CC) $(CFLAGS) $< -o $@ 
 
 all: $(NAME)
+
+test: $(NAME)
+	@./test/test.sh
 
 $(LIBFT):
 	$(MAKE) all -sC ./$(LIBFT_DIR)
