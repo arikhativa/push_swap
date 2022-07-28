@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:25:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 17:25:31 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/28 15:25:09 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,39 @@
 #include "define.h"
 #include "input.h"
 
-static int	is_only_digit(char *s)
+static char	*skip_digit(char *s)
 {
-	if (*s && *s == '-')
+	while (ft_isdigit(*s))
 		++s;
+	return (s);
+}
+
+static int	is_sign(char c)
+{
+	return (c == '-' || c == '+');
+}
+
+static char	*skip_sign(char *s)
+{
+	if (is_sign(*s))
+		++s;
+	return (s);
+}
+
+static int	is_line_valid(char *s)
+{
+	s = push_swap_skip_space(s);
 	if (!*s)
 		return (FALSE);
-	while (*s && ft_isdigit(*s))
-		++s;
-	return ('\0' == *s);
+	while (*s)
+	{
+		s = skip_sign(s);
+		s = skip_digit(s);
+		if (*s && !push_swap_is_space(*s))
+			return (FALSE);
+		s = push_swap_skip_space(s);
+	}
+	return (TRUE);
 }
 
 int	input_is_valid(int size, char **tab)
@@ -36,10 +60,7 @@ int	input_is_valid(int size, char **tab)
 	i = 1;
 	while (i < size)
 	{
-		stt = atoi_overflow(tab[i], &num);
-		if (ERROR == stt)
-			return (FALSE);
-		stt = is_only_digit(tab[i]);
+		stt = is_line_valid(tab[i]);
 		if (FALSE == stt)
 			return (FALSE);
 		++i;

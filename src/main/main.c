@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 14:54:18 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/28 15:17:05 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ int	main(int ac, char **av)
 		ft_printf("ERROR\n");
 		return (ERROR);
 	}
-	dstack = double_stack_create();
-	if (ERROR == double_stack_init(dstack, ac, av))
-	{
-		double_stack_free(dstack);
-		ft_printf("ERROR\n");
-		return (ERROR);
-	}
-	sort(dstack);
-	double_stack_free(dstack);
+	// dstack = double_stack_create();
+	// if (ERROR == double_stack_init(dstack, ac, av))
+	// {
+	// 	double_stack_free(dstack);
+	// 	ft_printf("ERROR\n");
+	// 	return (ERROR);
+	// }
+	// sort(dstack);
+	// double_stack_free(dstack);
 	return (SUCCESS);
 }
 
