@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   first_round.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 09:19:48 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 09:56:53 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/28 13:32:40 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_stack.h"
+#include "sort.h"
 
 static int	should_flip_a(t_double_stack *dstack)
 {
@@ -19,7 +19,7 @@ static int	should_flip_a(t_double_stack *dstack)
 
 	top = double_stack_get_top_value_a(dstack);
 	second_to_top = double_stack_get_second_to_top_value_a(dstack);
-	return (top < second_to_top);
+	return (top > second_to_top);
 }
 
 static int	should_flip_b(t_double_stack *dstack)
@@ -38,6 +38,7 @@ void	push_half(t_double_stack *dstack)
 	int	i;
 
 	i = 0;
+	size = double_stack_get_size_a(dstack);
 	while (i < (size / 2))
 	{
 		double_stack_push_a_to_b(dstack);
@@ -46,58 +47,57 @@ void	push_half(t_double_stack *dstack)
 	}
 }
 
-// void	sort_first_round(t_double_stack *dstack)
-// {
-// 	int		i;
-// 	int		flip_a;
-// 	int		flip_b;
-// 	int		size;
-
-// 	size = double_stack_get_size_a(dstack);
-// 	i = 4;
-// 	while (i < (size / 2))
-// 	{
-// 		double_stack_push_a_to_b(dstack);
-// 		double_stack_push_a_to_b(dstack);
-// 		flip_a = should_flip_a(dstack);
-// 		flip_b = should_flip_b(dstack);
-// 		if (flip_a && flip_b)
-// 			double_stack_swap_both(dstack);
-// 		else if (flip_a)
-// 			double_stack_swap_a(dstack);
-// 		else if (flip_b)
-// 			double_stack_swap_b(dstack);
-// 		double_stack_push_a_to_b(dstack);
-// 		double_stack_push_a_to_b(dstack);
-// 		i += 4;
-// 	}
-// }
-
-void	sort_first_round(t_double_stack *dstack, int size, int round)
+void	sort_first_round(t_double_stack *dstack, int size)
 {
-	int i = 0;
-	int c = 0;
-	int	size_a = 0;
-	int	size_b = 0;
-	int	nodes_a = 0;
-	int	nodes_b = 0;
+	int	size_a;
+	int	size_b;
+	int	flip_a;
+	int	flip_b;
 
 	push_half(dstack);
 	size_a = double_stack_get_size_a(dstack);
 	size_b = double_stack_get_size_b(dstack);
-	nodes_a = get_min(size_a, round / 2);
-	nodes_b = get_min(size_b, round / 2);
-	while (i < size)
+	while (size_a || size_b)
 	{
-		size_a -= nodes_a;
-		size_b -= nodes_b;
-		if ((c % 2) == 0)
-			generic_push(dstack, round, h_push_a, &nodes_a, &nodes_b);
-		else
-			generic_push(dstack, round, h_push_b, &nodes_a, &nodes_b);
-		++c;
-		i += round;
-		nodes_a = get_min(size_a, round / 2);
-		nodes_b = get_min(size_b, round / 2);
+		
+		flip_a = should_flip_a(dstack);
+		flip_b = should_flip_b(dstack);
+
+		if (size_a == 1)
+		{
+			flip_a = FALSE;
+			size_a = 0;
+			double_stack_rotate_a(dstack);
+		}
+		if (size_b == 1)
+		{
+			flip_b = FALSE;
+			size_b = 0;
+			double_stack_rotate_b(dstack);
+		}
+
+		if (flip_a && flip_b)
+			double_stack_swap_both(dstack);
+		else if (flip_a)
+			double_stack_swap_a(dstack);
+		else if (flip_b)
+			double_stack_swap_b(dstack);
+		if (size_a && size_b)
+		{
+			double_stack_rotate_both(dstack);
+			double_stack_rotate_both(dstack);
+		}
+		else if (size_a)
+		{
+			double_stack_rotate_a(dstack);
+			double_stack_rotate_a(dstack);
+		}
+		else if (size_b)
+		{
+			double_stack_rotate_b(dstack);
+			double_stack_rotate_b(dstack);
+		}
+		size_a -= get_min(2, size_a);
+		size_b -= get_min(2, size_b);
 	}
 }

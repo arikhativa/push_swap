@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 09:21:29 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 09:26:53 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/28 13:10:04 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	stack_swap_top(t_stack *s)
 		else
 			stack_push(s, top);
 		stack_push(s, sec_to_top);
+		s->size -= 2;
 	}
 }

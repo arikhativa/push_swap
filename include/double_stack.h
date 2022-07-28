@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_stack.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:59:15 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 09:29:21 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/28 12:56:49 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ typedef	struct	s_double_stack
 t_double_stack	*double_stack_create(void);
 void			double_stack_free(t_double_stack *dstack);
 
+// rotate
+void	double_stack_rotate_both(t_double_stack *dstack);
+void	double_stack_rotate_a(t_double_stack *dstack);
+void	double_stack_rotate_b(t_double_stack *dstack);
+
 // swap
 void	double_stack_swap_a(t_double_stack *dstack);
 void	double_stack_swap_b(t_double_stack *dstack);
@@ -41,8 +46,6 @@ int	double_stack_get_second_to_top_value_a(t_double_stack *dstack);
 int	double_stack_get_second_to_top_value_b(t_double_stack *dstack);
 
 // set
-void	double_stack_rotate_a(t_double_stack *dstack);
-void	double_stack_rotate_b(t_double_stack *dstack);
 int		double_stack_init(t_double_stack *dstack, int size, char **tab);
 
 // push

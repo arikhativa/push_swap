@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 09:43:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/28 13:17:23 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,6 @@ void	h_push_a(t_double_stack *dstack, int *size_a, int *size_b)
 	double_stack_rotate_a(dstack);
 }
 
-static int	get_min(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
 void	apply_round(t_double_stack *dstack, int size, int round)
 {
 	int i = 0;
@@ -104,13 +97,13 @@ void	merge_sort(t_double_stack *dstack)
 	int round;
 	int i;
 
-	size = double_stack_get_size_b(dstack) + double_stack_get_size_a(dstack);
-	round = 2;
-	sort_first_round(dstack);
-	// while (round < size)
-	// {
-	// 	apply_round(dstack, size, round);
-	// 	round *= 2;
-	// }
-	// apply_round(dstack, size, round);
+	size = double_stack_get_size_a(dstack);
+	round = 4;
+	sort_first_round(dstack, size);
+	while (round < size)
+	{
+		apply_round(dstack, size, round);
+		round *= 2;
+	}
+	apply_round(dstack, size, round);
 }
