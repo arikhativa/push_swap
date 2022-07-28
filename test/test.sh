@@ -16,3 +16,5 @@ do
 	./$EXEC $ARGS | ./$CHECKER $ARGS
 	i=$((i+1))
 done
+
+# A=$(cat ./test/resource/100); ./push_swap $A | ./checker_Mac $A
