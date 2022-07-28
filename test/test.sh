@@ -17,10 +17,23 @@ do
 	i=$((i+1))
 done
 
+echo one
+./$EXEC 1 | ./$CHECKER 1
 
+echo two
+./$EXEC 1 2 | ./$CHECKER 1 2
+./$EXEC 2 1 | ./$CHECKER 2 1
+
+echo three
 ./$EXEC 1 2 3 | ./$CHECKER 1 2 3 
 ./$EXEC 2 1 3 | ./$CHECKER 2 1 3 
 ./$EXEC 1 3 2 | ./$CHECKER 1 3 2 
 ./$EXEC 3 1 2 | ./$CHECKER 3 1 2 
 ./$EXEC 2 3 1 | ./$CHECKER 2 3 1 
 ./$EXEC 3 2 1 | ./$CHECKER 3 2 1 
+
+echo limits
+# smallest
+./$EXEC -2147483648 | ./$CHECKER -2147483648
+# lagestest
+./$EXEC 2147483647 | ./$CHECKER 2147483647
