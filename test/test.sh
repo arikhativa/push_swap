@@ -17,4 +17,10 @@ do
 	i=$((i+1))
 done
 
-# A=$(cat ./test/resource/100); ./push_swap $A | ./checker_Mac $A
+
+./$EXEC 1 2 3 | ./$CHECKER 1 2 3 
+./$EXEC 2 1 3 | ./$CHECKER 2 1 3 
+./$EXEC 1 3 2 | ./$CHECKER 1 3 2 
+./$EXEC 3 1 2 | ./$CHECKER 3 1 2 
+./$EXEC 2 3 1 | ./$CHECKER 2 3 1 
+./$EXEC 3 2 1 | ./$CHECKER 3 2 1 

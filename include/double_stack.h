@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:59:15 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 12:56:49 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/28 14:02:26 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void			double_stack_free(t_double_stack *dstack);
 void	double_stack_rotate_both(t_double_stack *dstack);
 void	double_stack_rotate_a(t_double_stack *dstack);
 void	double_stack_rotate_b(t_double_stack *dstack);
+void	double_stack_rev_rotate_a(t_double_stack *dstack);
 
 // swap
 void	double_stack_swap_a(t_double_stack *dstack);

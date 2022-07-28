@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:44:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/27 13:48:12 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/28 14:00:38 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ void	stack_rotate(t_stack *s)
 	list = stack_get_list(s);
 	last = dll_remove_last_elem(*list);
 	dll_add_before(*list, last);
+}
+
+void	stack_rev_rotate(t_stack *s)
+{
+	t_dll	**list;
+	t_dll	*elem;
+
+	if (0 == s->size || 1 == s->size)
+		return ;
+	list = stack_get_list(s);
+	elem = dll_remove_first_elem(*list);
+	dll_add_after(*list, elem);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 09:27:14 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/28 14:00:59 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ typedef struct s_stack
 t_stack	*stack_create(void);
 void	stack_free(t_stack *s);
 
-// set
+// rotate
+void	stack_rev_rotate(t_stack *s);
 void	stack_rotate(t_stack *s);
+
+// set
 void	stack_push(t_stack *s, t_dll *elem);
 t_dll	*stack_pop(t_stack *s);
 
