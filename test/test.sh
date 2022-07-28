@@ -17,14 +17,14 @@ do
 	i=$((i+1))
 done
 
-echo one
+printf "\none\n"
 ./$EXEC 1 | ./$CHECKER 1
 
-echo two
+printf "\ntwo\n"
 ./$EXEC 1 2 | ./$CHECKER 1 2
 ./$EXEC 2 1 | ./$CHECKER 2 1
 
-echo three
+printf "\nthree\n"
 ./$EXEC 1 2 3 | ./$CHECKER 1 2 3 
 ./$EXEC 2 1 3 | ./$CHECKER 2 1 3 
 ./$EXEC 1 3 2 | ./$CHECKER 1 3 2 
@@ -32,7 +32,15 @@ echo three
 ./$EXEC 2 3 1 | ./$CHECKER 2 3 1 
 ./$EXEC 3 2 1 | ./$CHECKER 3 2 1 
 
-echo limits
+printf "\nfour\n"
+./$EXEC 4 1 2 3 | ./$CHECKER 4 1 2 3 
+./$EXEC 2 4 1 3 | ./$CHECKER 2 4 1 3 
+./$EXEC 1 3 2 4 | ./$CHECKER 1 3 2 4 
+./$EXEC 3 1 4 2 | ./$CHECKER 3 1 4 2 
+./$EXEC 4 2 3 1 | ./$CHECKER 4 2 3 1 
+./$EXEC 4 3 2 1 | ./$CHECKER 4 3 2 1 
+
+printf "\nlimits\n"
 # smallest
 ./$EXEC -2147483648 | ./$CHECKER -2147483648
 # lagestest

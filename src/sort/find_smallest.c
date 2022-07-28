@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                        :+:      :+:    :+:   */
+/*   find_smallest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 13:42:15 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 14:59:05 by yrabby           ###   ########.fr       */
+/*   Created: 2022/07/28 14:56:07 by yrabby            #+#    #+#             */
+/*   Updated: 2022/07/28 14:56:34 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort_five(t_double_stack *dstack)
+int	find_smallest(t_double_stack *dstack)
 {
-	int	i;
+	t_dll	*list;
+	t_dll	*runner;
+	int		value;
+	int		i;
 
-	i = find_smallest(dstack);
-	if (3 == i)
-		double_stack_swap_a(dstack);
-	if (2 == i)
+	list = *stack_get_list(dstack->a);
+	runner = list;
+	value = runner->value;
+	while (runner)
 	{
-		double_stack_rotate_a(dstack);
-		double_stack_rotate_a(dstack);
+		if (runner->value < value)
+			value = runner->value;
+		runner = runner->next;
 	}
-	else if (1 == i)
+	i = 0;
+	runner = list;
+	while (runner)
 	{
-		double_stack_rev_rotate_a(dstack);
-		double_stack_rev_rotate_a(dstack);
+		if (runner->value == value)
+			return (i);
+		runner = runner->next;
+		++i;
 	}
-	else if (0 == i)
-		double_stack_rev_rotate_a(dstack);
-	double_stack_push_a_to_b(dstack);
-	sort_four(dstack);
-	double_stack_push_b_to_a(dstack);
+	return (i);
 }
