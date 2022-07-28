@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   stack_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:46:21 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 09:56:04 by yoav             ###   ########.fr       */
+/*   Created: 2022/07/28 09:21:29 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/28 09:26:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_H
-# define SORT_H
+#include "stack.h"
 
-#include "double_stack.h"
+void	stack_swap_top(t_stack *s)
+{
+	t_dll	*top;
+	t_dll	*sec_to_top;
 
-void	sort_first_round(t_double_stack *dstack);
-void	merge_sort(t_double_stack *dstack);
-void	h_push_b(t_double_stack *dstack, int *size_a, int *size_b);
-void	h_push_a(t_double_stack *dstack, int *size_a, int *size_b);
-
-#endif
+	if (2 <= s->size)
+	{
+		top = dll_remove_last_elem(s->lst);
+		sec_to_top = dll_remove_last_elem(s->lst);
+		if (2 == s->size)
+			s->lst = top;
+		else
+			stack_push(s, top);
+		stack_push(s, sec_to_top);
+	}
+}

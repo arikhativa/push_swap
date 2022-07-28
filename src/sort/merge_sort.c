@@ -3,36 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/27 18:03:35 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/28 09:43:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "generic.h"
 #include "define.h"
+#include "sort.h"
 #include "double_stack.h"
-
-void	sort_round1(t_double_stack *dstack)
-{
-	int		i;
-	int		size;
-
-	i = 0;
-	size = double_stack_get_size_a(dstack);
-	while (i < size)
-	{
-		if ((i % 2) == 0)
-		{
-			double_stack_push_a_to_b(dstack);
-			double_stack_rotate_b(dstack);
-		}
-		else
-			double_stack_rotate_a(dstack);
-		++i;
-	}
-}
 
 int	stack_with_smaller_elem(t_double_stack *dstack)
 {
@@ -125,11 +106,11 @@ void	merge_sort(t_double_stack *dstack)
 
 	size = double_stack_get_size_b(dstack) + double_stack_get_size_a(dstack);
 	round = 2;
-	sort_round1(dstack);
-	while (round < size)
-	{
-		apply_round(dstack, size, round);
-		round *= 2;
-	}
-	apply_round(dstack, size, round);
+	sort_first_round(dstack);
+	// while (round < size)
+	// {
+	// 	apply_round(dstack, size, round);
+	// 	round *= 2;
+	// }
+	// apply_round(dstack, size, round);
 }

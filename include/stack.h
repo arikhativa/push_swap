@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/27 13:59:11 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/28 09:27:14 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,14 @@ void	stack_rotate(t_stack *s);
 void	stack_push(t_stack *s, t_dll *elem);
 t_dll	*stack_pop(t_stack *s);
 
+// swap
+void	stack_swap_top(t_stack *s);
 
 // get
 t_dll	**stack_get_list(t_stack *s);
 int		stack_get_size(t_stack *s);
 int	stack_get_top_value(t_stack *s);
+int	stack_get_second_to_top_value(t_stack *s);
 
 // print
 void	stack_print(t_stack *s);

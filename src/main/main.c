@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/27 18:08:07 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/28 09:44:04 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int	main(int ac, char **av)
 		ft_printf("ERROR\n");
 		return (ERROR);
 	}
+	double_stack_print(dstack);
 	merge_sort(dstack);
-	// double_stack_print(dstack);
+	double_stack_print(dstack);
 	double_stack_free(dstack);
 	int ret;
 	

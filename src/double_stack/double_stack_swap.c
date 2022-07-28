@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   double_stack_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:46:21 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 09:56:04 by yoav             ###   ########.fr       */
+/*   Created: 2022/07/28 09:27:35 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/28 09:29:00 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_H
-# define SORT_H
-
 #include "double_stack.h"
 
-void	sort_first_round(t_double_stack *dstack);
-void	merge_sort(t_double_stack *dstack);
-void	h_push_b(t_double_stack *dstack, int *size_a, int *size_b);
-void	h_push_a(t_double_stack *dstack, int *size_a, int *size_b);
+void	double_stack_swap_a(t_double_stack *dstack)
+{
+	ft_printf("sa\n");
+	stack_swap_top(dstack->a);
+}
 
-#endif
+void	double_stack_swap_b(t_double_stack *dstack)
+{
+	ft_printf("sb\n");
+	stack_swap_top(dstack->b);
+}
+
+void	double_stack_swap_both(t_double_stack *dstack)
+{
+	ft_printf("ss\n");
+	stack_swap_top(dstack->a);
+	stack_swap_top(dstack->b);
+}
