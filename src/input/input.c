@@ -3,35 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:25:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 15:25:09 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/02 10:31:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "define.h"
 #include "input.h"
-
-static char	*skip_digit(char *s)
-{
-	while (ft_isdigit(*s))
-		++s;
-	return (s);
-}
-
-static int	is_sign(char c)
-{
-	return (c == '-' || c == '+');
-}
-
-static char	*skip_sign(char *s)
-{
-	if (is_sign(*s))
-		++s;
-	return (s);
-}
 
 static int	is_line_valid(char *s)
 {

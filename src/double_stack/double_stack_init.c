@@ -6,26 +6,56 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 17:25:49 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/02 10:49:30 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input.h"
 #include "double_stack.h"
-#include "define.h"
+
+static char *next_input(char *s)
+{
+	s = skip_sign(s);
+	s = skip_digit(s);
+	s = push_swap_skip_space(s);
+	return (s);
+}
+
+int	parse_line(t_double_stack *dstack, char *s)
+{
+	int		num;
+	t_dll	*elem;
+	t_stack	*tmp_stack;
+
+	tmp_stack = stack_create();
+	if (!tmp_stack)
+		return (ERROR);
+	s = push_swap_skip_space(s);
+	while (*s)
+	{
+		atoi_overflow(s, &num);
+		elem = dll_create_elem(num);
+		if (!elem)
+		{
+			stack_free(tmp_stack);
+			return (ERROR);
+		}
+		stack_push(tmp_stack, elem);
+		s = next_input(s);
+	}
+	while (!stack_is_empty(tmp_stack))
+		stack_push(dstack->a, stack_pop(tmp_stack));
+	stack_free(tmp_stack);
+	return (SUCCESS);
+}
 
 int	double_stack_init(t_double_stack *dstack, int size, char **tab)
 {
 	int	i;
-	int	num;
-	int stt;
 
 	i = size - 1;
 	while (i)
 	{
-		atoi_overflow(tab[i], &num);
-		if (ERROR == double_stack_push_a(dstack, num))
-			return (ERROR);
+		parse_line(dstack, tab[i]);
 		--i;
 	}
 	return (SUCCESS);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_stack.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:59:15 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 14:02:26 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/02 10:40:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "dll.h"
 # include "define.h"
 # include "ft_printf.h"
+# include "input.h"
 
 typedef	struct	s_double_stack
 {

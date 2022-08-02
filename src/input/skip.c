@@ -1,43 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   skip.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 11:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:44:14 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/02 10:29:54 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/02 10:32:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
-#include "libft.h"
-#include "dll.h"
+#include "input.h"
 
-static void	stack_del_elem(void *elem)
+static int	is_sign(char c)
 {
-	(void)elem;
-	return ;
+	return (c == '-' || c == '+');
 }
 
-t_stack	*stack_create(void)
+char	*skip_sign(char *s)
 {
-	t_stack	*s;
-
-	s = ft_calloc(1, sizeof(t_stack));
-	if (!s)
-		return (NULL);
+	if (is_sign(*s))
+		++s;
 	return (s);
 }
 
-void	stack_free(t_stack *s)
+int	push_swap_is_space(char c)
 {
-	dll_clear_list(s->lst);
-	ft_bzero(s, sizeof(s));
-	free(s);
+	return (c == '\t' || c == '\n' || c == '\v' || \
+			c == '\f' || c == '\r' || c == ' ');
 }
 
-int	stack_is_empty(t_stack *s)
+char	*push_swap_skip_space(char *s)
 {
-	return (0 == s->size);
+	while (push_swap_is_space(*s))
+		++s;
+	return (s);
+}
+
+char	*skip_digit(char *s)
+{
+	while (ft_isdigit(*s))
+		++s;
+	return (s);
 }

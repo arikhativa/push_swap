@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 14:00:59 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/02 10:44:25 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_dll	**stack_get_list(t_stack *s);
 int		stack_get_size(t_stack *s);
 int	stack_get_top_value(t_stack *s);
 int	stack_get_second_to_top_value(t_stack *s);
+int	stack_is_empty(t_stack *s);
 
 // print
 void	stack_print(t_stack *s);

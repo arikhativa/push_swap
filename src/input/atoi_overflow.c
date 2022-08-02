@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   atoi_overflow.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:21:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 15:24:13 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/02 10:36:06 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "libft.h"
-
-int	push_swap_is_space(char c)
-{
-	return (c == '\t' || c == '\n' || c == '\v' || \
-			c == '\f' || c == '\r' || c == ' ');
-}
-
-char	*push_swap_skip_space(char *s)
-{
-	while (push_swap_is_space(*s))
-		++s;
-	return (s);
-}
+#include "input.h"
 
 static char	*skip_get_sign(char *s, int *sign)
 {
