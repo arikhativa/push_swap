@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:21 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/02 12:01:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/02 12:17:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include "double_stack.h"
 # include "generic.h"
+
+typedef struct	s_sort_meta
+{
+	int	a_size;
+	int	a_clean_nodes;
+	int	b_size;
+	int	b_clean_nodes;
+}				t_sort_meta;
 
 void	sort(t_double_stack *dstack);
 void	sort_two(t_double_stack *dstack);

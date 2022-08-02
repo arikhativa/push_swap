@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 13:17:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/02 12:21:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "generic.h"
-#include "define.h"
 #include "sort.h"
-#include "double_stack.h"
 
 int	stack_with_smaller_elem(t_double_stack *dstack)
 {
@@ -26,7 +23,6 @@ int	stack_with_smaller_elem(t_double_stack *dstack)
 		return (A_SMALL);
 	return (B_SMALL);
 }
-
 
 void	h_push_b(t_double_stack *dstack, int *size_a, int *size_b)
 {
@@ -67,27 +63,26 @@ void	h_push_a(t_double_stack *dstack, int *size_a, int *size_b)
 	double_stack_rotate_a(dstack);
 }
 
-void	apply_round(t_double_stack *dstack, int size, int round)
+void	apply_round(t_double_stack *dstack, int round)
 {
-	int i = 0;
+	t_sort_meta	meta;
 	int c = 0;
-	int	size_a = double_stack_get_size_a(dstack);
-	int	size_b = double_stack_get_size_b(dstack);
-	int	nodes_a = get_min(size_a, round / 2);
-	int	nodes_b = get_min(size_b, round / 2);
 
-	while (i < size)
+	meta.a_size = double_stack_get_size_a(dstack);
+	meta.a_clean_nodes = get_min(meta.a_size, round / 2);
+	meta.b_size = double_stack_get_size_b(dstack);
+	meta.b_clean_nodes = get_min(meta.b_size, round / 2);
+	while (meta.a_size || meta.b_size)
 	{
-		size_a -= nodes_a;
-		size_b -= nodes_b;
+		meta.a_size -= meta.a_clean_nodes;
+		meta.b_size -= meta.b_clean_nodes;
 		if ((c % 2) == 0)
-			generic_push(dstack, round, h_push_a, &nodes_a, &nodes_b);
+			generic_push(dstack, round, h_push_a, &meta.a_clean_nodes, &meta.b_clean_nodes);
 		else
-			generic_push(dstack, round, h_push_b, &nodes_a, &nodes_b);
+			generic_push(dstack, round, h_push_b, &meta.a_clean_nodes, &meta.b_clean_nodes);
 		++c;
-		i += round;
-		nodes_a = get_min(size_a, round / 2);
-		nodes_b = get_min(size_b, round / 2);
+		meta.a_clean_nodes = get_min(meta.a_size, round / 2);
+		meta.b_clean_nodes = get_min(meta.b_size, round / 2);
 	}
 }
 
@@ -98,12 +93,12 @@ void	merge_sort(t_double_stack *dstack)
 	int i;
 
 	size = double_stack_get_size_a(dstack);
-	round = 4;
 	sort_first_round(dstack, size);
+	round = 4;
 	while (round < size)
 	{
-		apply_round(dstack, size, round);
+		apply_round(dstack, round);
 		round *= 2;
 	}
-	apply_round(dstack, size, round);
+	apply_round(dstack, round);
 }

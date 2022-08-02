@@ -9,6 +9,7 @@ FILES=($RES_DIR/one_num_no_action $RES_DIR/two_num_no_action $RES_DIR/10 $RES_DI
 
 # add test for 5 buy 12
 
+printf "\nbig\n"
 i=0
 while [ $i -ne ${#FILES[@]} ]
 do
