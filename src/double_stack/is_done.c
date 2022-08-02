@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   duplicates.c                                       :+:      :+:    :+:   */
+/*   is_done.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 10:50:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 11:11:15 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/02 11:10:16 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/02 11:14:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ static int	validate(t_dll *elem, void *param)
 	int	*num;
 
 	num = param;
-	if (elem->value == *num)
-		return (ERROR);
-	return (SUCCESS);
+	if (elem->value < *num)
+	{
+		*num = elem->value;
+		return (SUCCESS);
+	}
+	return (ERROR);
 }
 
-int	double_stack_is_duplicates(t_double_stack *dstack)
+int	double_stack_is_done(t_double_stack *dstack)
 {
 	int		num;
 	int		stt;
@@ -30,15 +33,8 @@ int	double_stack_is_duplicates(t_double_stack *dstack)
 
 	runner = dstack->a->lst;
 	if (runner && !runner->next)
-		return (FALSE);
-	stt = SUCCESS;
-	while (runner->next && SUCCESS == stt)
-	{
-		num = runner->value;
-		stt = dll_iterate(runner->next, validate, &num);
-		runner = runner->next;
-	}
-	if (SUCCESS == stt)
-		return (FALSE);
-	return (TRUE);
+		return (TRUE);
+	num = runner->value;
+	stt = dll_iterate(runner->next, validate, &num);
+	return  (SUCCESS == stt);
 }

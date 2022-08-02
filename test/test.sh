@@ -1,7 +1,7 @@
 #!/bin/bash
 
 EXEC=push_swap
-CHECKER=checker_Mac
+CHECKER=checker_linux
 
 RES_DIR=./test/resource
 
