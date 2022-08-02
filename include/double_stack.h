@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:59:15 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:40:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/02 11:07:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef	struct	s_double_stack
 
 t_double_stack	*double_stack_create(void);
 void			double_stack_free(t_double_stack *dstack);
+
+int	double_stack_is_duplicates(t_double_stack *dstack);
 
 // rotate
 void	double_stack_rotate_both(t_double_stack *dstack);

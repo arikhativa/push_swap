@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:49:30 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/02 11:06:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int	double_stack_init(t_double_stack *dstack, int size, char **tab)
 		parse_line(dstack, tab[i]);
 		--i;
 	}
+	if (TRUE == double_stack_is_duplicates(dstack))
+		return (ERROR);
 	return (SUCCESS);
 }

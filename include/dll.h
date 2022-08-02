@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+# include "define.h"
+
 typedef	struct	s_dll	t_dll;
 
 typedef struct	s_dll
@@ -24,6 +26,10 @@ typedef struct	s_dll
 	t_dll	*next;
 	t_dll	*prev;
 }				t_dll;
+
+typedef int (*t_dll_iter)(t_dll *elem, void *param);
+
+int	dll_iterate(t_dll *lst, t_dll_iter f, void *param);
 
 // get
 t_dll	*dll_get_last_elem(t_dll *lst);
