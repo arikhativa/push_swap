@@ -5,7 +5,7 @@ CHECKER=checker_linux
 
 RES_DIR=./test/resource
 
-FILE=$RES_DIR/all_6
+FILE=$1
 
 i=1
 while [ $i -ne $(cat $FILE | wc -l) ]

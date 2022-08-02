@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 13:40:24 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 14:45:21 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/02 12:01:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	sort(t_double_stack *dstack)
 		sort_four(dstack);
 	else if (5 == size)
 		sort_five(dstack);
+	else if (6 == size)
+		sort_six(dstack);
 	else
 		merge_sort(dstack);
 }
