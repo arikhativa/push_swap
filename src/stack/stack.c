@@ -3,22 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:44:14 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/03 16:14:30 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "libft.h"
 #include "dll.h"
-
-static void	stack_del_elem(void *elem)
-{
-	(void)elem;
-	return ;
-}
 
 t_stack	*stack_create(void)
 {

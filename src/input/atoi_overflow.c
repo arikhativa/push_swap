@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:21:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 12:15:06 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:01:11 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	inc(const char *s, int *ret)
 	{
 		tmp = num;
 		num = (num * 10);
-		if (num / 10 != tmp)
+		if (num < tmp)
 			return (ERROR);
 		tmp = (*s - '0');
 		num += tmp;

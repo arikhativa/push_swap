@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 11:41:08 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:23:47 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,42 +24,42 @@ int	stack_with_smaller_elem(t_double_stack *dstack)
 	return (B_SMALL);
 }
 
-void	h_push_b(t_double_stack *dstack, int *size_a, int *size_b)
+void	h_push_b(t_double_stack *dstack, t_sort_meta *m)
 {
-	if (!(*size_b) && *(size_a))
+	if (!(m->b_run_size) && (m->a_run_size))
 	{
 		double_stack_push_a_to_b(dstack);
-		--*(size_a);
+		--(m->a_run_size);
 	}
-	else if (!(*size_a) && (*size_b))
-		--(*size_b);
+	else if (!(m->a_run_size) && (m->b_run_size))
+		--(m->b_run_size);
 	else if (A_SMALL == stack_with_smaller_elem(dstack))
 	{
 		double_stack_push_a_to_b(dstack);
-		--(*size_a);
+		--(m->a_run_size);
 	}
 	else if (B_SMALL == stack_with_smaller_elem(dstack))
-		--(*size_b);
+		--(m->b_run_size);
 	double_stack_rotate_b(dstack);
 
 }
 
-void	h_push_a(t_double_stack *dstack, int *size_a, int *size_b)
+void	h_push_a(t_double_stack *dstack, t_sort_meta *m)
 {
-	if (!(*size_b) && (*size_a))
-		--(*size_a);
-	else if (!(*size_a) && (*size_b))
+	if (!(m->b_run_size) && (m->a_run_size))
+		--(m->a_run_size);
+	else if (!(m->a_run_size) && (m->b_run_size))
 	{
 		double_stack_push_b_to_a(dstack);
-		--(*size_b);
+		--(m->b_run_size);
 	}
 	else if (B_SMALL == stack_with_smaller_elem(dstack))
 	{
 		double_stack_push_b_to_a(dstack);
-		--(*size_b);
+		--(m->b_run_size);
 	}
 	else if (A_SMALL == stack_with_smaller_elem(dstack))
-		--(*size_a);
+		--(m->a_run_size);
 	double_stack_rotate_a(dstack);
 }
 
@@ -73,11 +73,11 @@ void	apply_round(t_double_stack *dstack, int round)
 	{
 		sort_meta_set_size(&meta);
 		if ((c % 2) == 0)
-			generic_push(dstack, round, h_push_a, &meta.a_clean_nodes, &meta.b_clean_nodes);
+			generic_push(dstack, round, h_push_a, &meta);
 		else
-			generic_push(dstack, round, h_push_b, &meta.a_clean_nodes, &meta.b_clean_nodes);
+			generic_push(dstack, round, h_push_b, &meta);
 		++c;
-		sort_meta_set_clean_nodes(&meta, round);
+		sort_meta_set_run_size(&meta, round);
 	}
 }
 
@@ -85,10 +85,9 @@ void	merge_sort(t_double_stack *dstack)
 {
 	int size;
 	int round;
-	int i;
 
 	size = double_stack_get_size_a(dstack);
-	sort_first_round(dstack, size);
+	sort_first_round(dstack);
 	round = 4;
 	while (round < size)
 	{

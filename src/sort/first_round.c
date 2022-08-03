@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 09:19:48 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/28 13:50:56 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:13:42 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	push_half(t_double_stack *dstack)
 	}
 }
 
-void	sort_first_round(t_double_stack *dstack, int size)
+void	sort_first_round(t_double_stack *dstack)
 {
 	int	size_a;
 	int	size_b;
