@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:23:47 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:27:46 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	h_push_b(t_double_stack *dstack, t_sort_meta *m)
 	else if (B_SMALL == stack_with_smaller_elem(dstack))
 		--(m->b_run_size);
 	double_stack_rotate_b(dstack);
-
 }
 
 void	h_push_a(t_double_stack *dstack, t_sort_meta *m)
@@ -66,9 +65,10 @@ void	h_push_a(t_double_stack *dstack, t_sort_meta *m)
 void	apply_round(t_double_stack *dstack, int round)
 {
 	t_sort_meta	meta;
-	int c = 0;
+	int			c;
 
 	sort_meta_init(&meta, dstack, round);
+	c = 0;
 	while (meta.a_size || meta.b_size)
 	{
 		sort_meta_set_size(&meta);
@@ -83,8 +83,8 @@ void	apply_round(t_double_stack *dstack, int round)
 
 void	merge_sort(t_double_stack *dstack)
 {
-	int size;
-	int round;
+	int	size;
+	int	round;
 
 	size = double_stack_get_size_a(dstack);
 	sort_first_round(dstack);

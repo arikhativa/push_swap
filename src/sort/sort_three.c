@@ -6,29 +6,28 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 13:48:16 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 14:20:12 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:26:00 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-t_value_order get_order(int a, int b, int c)
+t_value_order	get_order(int a, int b, int c)
 {
-	if ((a > b) && (a > c)) // B??
+	if ((a > b) && (a > c))
 	{
 		if (b > c)
 			return (BMS);
 		else
 			return (BSM);
 	}
-	if (b > c) // ?B?
+	if (b > c)
 	{
 		if (a > c)
 			return (MBS);
 		else
 			return (SBM);
 	}
-	// ??B
 	if (a > b)
 		return (MSB);
 	else

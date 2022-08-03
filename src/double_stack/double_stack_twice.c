@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generic.c                                          :+:      :+:    :+:   */
+/*   double_stack_twice.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 14:56:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:27:56 by yrabby           ###   ########.fr       */
+/*   Created: 2022/08/03 16:35:34 by yrabby            #+#    #+#             */
+/*   Updated: 2022/08/03 16:43:48 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "double_stack.h"
 
-int	get_min(int a, int b)
+void	double_stack_rotate_both_twice(t_double_stack *dstack)
 {
-	if (a < b)
-		return (a);
-	return (b);
+	double_stack_rotate_both(dstack);
+	double_stack_rotate_both(dstack);
 }
 
-void	generic_push(t_double_stack *dstack, int round,	t_handle_push f, \
-	t_sort_meta *m)
+void	double_stack_rotate_a_twice(t_double_stack *dstack)
 {
-	int	i;
+	double_stack_rotate_a(dstack);
+	double_stack_rotate_a(dstack);
+}
 
-	i = 0;
-	while ((i < round) && (m->a_run_size || m->b_run_size))
-	{
-		f(dstack, m);
-		++i;
-	}
+void	double_stack_rotate_b_twice(t_double_stack *dstack)
+{
+	double_stack_rotate_b(dstack);
+	double_stack_rotate_b(dstack);
 }
