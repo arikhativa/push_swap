@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_smallest.c                                    :+:      :+:    :+:   */
+/*   stack_get_by_index.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 14:56:07 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/28 14:56:34 by yrabby           ###   ########.fr       */
+/*   Created: 2022/08/03 18:25:26 by yrabby            #+#    #+#             */
+/*   Updated: 2022/08/03 18:27:48 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "stack.h"
 
-int	find_smallest(t_double_stack *dstack)
+int	stack_get_value_by_index(t_stack *stack, int index)
 {
-	t_dll	*list;
-	t_dll	*runner;
-	int		value;
 	int		i;
+	t_dll	*runner;
 
-	list = *stack_get_list(dstack->a);
-	runner = list;
-	value = runner->value;
-	while (runner)
-	{
-		if (runner->value < value)
-			value = runner->value;
-		runner = runner->next;
-	}
+	runner = stack->lst;
+	if (runner && !runner->next)
+		return (runner->value);
 	i = 0;
-	runner = list;
 	while (runner)
 	{
-		if (runner->value == value)
-			return (i);
+		if (i == index)
+			return (runner->value);
 		runner = runner->next;
 		++i;
 	}
-	return (i);
+	return (ERROR);
 }

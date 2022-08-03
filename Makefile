@@ -18,7 +18,8 @@ SRC = $(wildcard src/**/*.c)
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -c -Wall -Werror -Wextra -I$(LIBFT_HEAD_DIR) -I$(HEAD_DIR) -I$(FT_PRINTF_DIR)
+# -Wall -Werror -Wextra
+CFLAGS = -c  -I$(LIBFT_HEAD_DIR) -I$(HEAD_DIR) -I$(FT_PRINTF_DIR)
 LDFLAGS = -L$(LIBFT_DIR)
 LDLIBS = -lft
 

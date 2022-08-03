@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 13:42:15 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:27:00 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 17:25:48 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sort_six(t_double_stack *dstack)
 {
 	int	i;
 
-	i = find_smallest(dstack);
+	i = find_smallest(dstack->a);
 	if (4 == i)
 		double_stack_swap_a(dstack);
 	else if (3 == i)

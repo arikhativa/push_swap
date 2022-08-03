@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:21 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:31:01 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 17:40:50 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define SORT_H
 
 # include "double_stack.h"
+
+typedef struct	s_sort_by_quarter
+{
+	int	quarter_size;
+	int	last_quarter_size;
+	int	biggest_in_quarter;
+	int	smallest_in_quarter;
+}				t_sort_by_quarter;
 
 typedef struct	s_first_round_meta
 {
@@ -30,6 +38,10 @@ typedef struct	s_sort_meta
 	int	b_size;
 	int	b_run_size;
 }				t_sort_meta;
+
+// quarter
+void	sort_by_quarter(t_double_stack *dstack);
+
 
 // generic
 typedef void (*t_handle_push)(t_double_stack *dstack, t_sort_meta *m);
@@ -54,7 +66,8 @@ void	h_push_b(t_double_stack *dstack, t_sort_meta *m);
 void	h_push_a(t_double_stack *dstack, t_sort_meta *m);
 int		should_flip_a(t_double_stack *dstack);
 int		should_flip_b(t_double_stack *dstack);
-int		find_smallest(t_double_stack *dstack);
+int		find_smallest(t_stack *stack);
+int		find_biggest(t_stack *stack);
 
 typedef enum e_value_order {
 	BMS,

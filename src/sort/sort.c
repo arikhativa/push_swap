@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 13:40:24 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:27:15 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 17:14:00 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	sort(t_double_stack *dstack)
 		sort_five(dstack);
 	else if (6 == size)
 		sort_six(dstack);
+	else if (80 < size  && 200 > size)
+		sort_by_quarter(dstack);
 	else
 		merge_sort(dstack);
 }
