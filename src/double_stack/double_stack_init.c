@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 11:54:15 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 12:15:21 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ int	double_stack_init(t_double_stack *dstack, int size, char **tab)
 		--i;
 	}
 	if (TRUE == double_stack_is_duplicates(dstack))
-	{
-		printf("B\n");
 		return (ERROR);
-	}
 	return (SUCCESS);
 }
