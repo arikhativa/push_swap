@@ -26,25 +26,34 @@ LDLIBS = -lft
 .PHONY: clean fclean re all test
 
 %.o: %.c
-	$(CC) $(CFLAGS) $< -o $@ 
+	@$(CC) $(CFLAGS) $< -o $@ 
 
 all: $(NAME)
 
 test: $(NAME)
-	@./test/test.sh
+	@test/test.sh
+
+test/5: $(NAME)
+	@./test/many.sh ./test/resource/all_5
+
+test/6: $(NAME)
+	@./test/many.sh ./test/resource/all_6
+
+test/7: $(NAME)
+	@./test/many.sh ./test/resource/all_7
 
 $(LIBFT):
-	$(MAKE) all -sC ./$(LIBFT_DIR)
+	@$(MAKE) all -sC ./$(LIBFT_DIR)
 
 $(NAME): $(OBJ) $(LIBFT) $(HEAD_NAME)
-	$(CC) $(LDFLAGS) $(OBJ) $(LDLIBS) -o $@
+	@$(CC) $(LDFLAGS) $(OBJ) $(LDLIBS) -o $@
 
 clean:
-	$(MAKE) clean -sC ./$(LIBFT_DIR)
-	$(RM) $(OBJ)
+	@$(MAKE) clean -sC ./$(LIBFT_DIR)
+	@$(RM) $(OBJ)
 
 fclean: clean
-	$(MAKE) fclean -sC ./$(LIBFT_DIR)
-	$(RM) $(NAME)
+	@$(MAKE) fclean -sC ./$(LIBFT_DIR)
+	@$(RM) $(NAME)
 
 re: fclean all

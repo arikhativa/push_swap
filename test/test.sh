@@ -1,13 +1,15 @@
 #!/bin/bash
 
-EXEC=push_swap
 CHECKER=checker_linux
+cat /etc/os-release > /dev/null 2>&1 
+if [ $? -eq "1" ]
+then
+	CHECKER=checker_Mac
+fi
 
+EXEC=push_swap
 RES_DIR=./test/resource
-
-FILES=($RES_DIR/one_num_no_action $RES_DIR/two_num_no_action $RES_DIR/10 $RES_DIR/7 $RES_DIR/100 $RES_DIR/500 $RES_DIR/5)
-
-# add test for 5 buy 12
+FILES=($RES_DIR/10 $RES_DIR/20 $RES_DIR/100 $RES_DIR/500)
 
 printf "\nbig\n"
 i=0
@@ -44,5 +46,7 @@ printf "\nfour\n"
 printf "\nlimits\n"
 # smallest
 ./$EXEC -2147483648 | ./$CHECKER -2147483648
+./$EXEC -2147483648 -2147483647 -2147483640 | ./$CHECKER -2147483648 -2147483647 -2147483640
 # lagestest
 ./$EXEC 2147483647 | ./$CHECKER 2147483647
+./$EXEC 2147483647 2147483646 2147483640 | ./$CHECKER 2147483647 2147483646 2147483640

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/02 12:21:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/03 11:41:08 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,16 @@ void	apply_round(t_double_stack *dstack, int round)
 	t_sort_meta	meta;
 	int c = 0;
 
-	meta.a_size = double_stack_get_size_a(dstack);
-	meta.a_clean_nodes = get_min(meta.a_size, round / 2);
-	meta.b_size = double_stack_get_size_b(dstack);
-	meta.b_clean_nodes = get_min(meta.b_size, round / 2);
+	sort_meta_init(&meta, dstack, round);
 	while (meta.a_size || meta.b_size)
 	{
-		meta.a_size -= meta.a_clean_nodes;
-		meta.b_size -= meta.b_clean_nodes;
+		sort_meta_set_size(&meta);
 		if ((c % 2) == 0)
 			generic_push(dstack, round, h_push_a, &meta.a_clean_nodes, &meta.b_clean_nodes);
 		else
 			generic_push(dstack, round, h_push_b, &meta.a_clean_nodes, &meta.b_clean_nodes);
 		++c;
-		meta.a_clean_nodes = get_min(meta.a_size, round / 2);
-		meta.b_clean_nodes = get_min(meta.b_size, round / 2);
+		sort_meta_set_clean_nodes(&meta, round);
 	}
 }
 
