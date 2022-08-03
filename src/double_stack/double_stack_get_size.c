@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_done.c                                          :+:      :+:    :+:   */
+/*   double_stack_get_size.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 11:10:16 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:47:07 by yrabby           ###   ########.fr       */
+/*   Created: 2022/08/03 16:48:58 by yrabby            #+#    #+#             */
+/*   Updated: 2022/08/03 16:49:06 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_stack.h"
 
-static int	validate(t_dll *elem, void *param)
+int	double_stack_get_size_a(t_double_stack *dstack)
 {
-	int	*num;
-
-	num = param;
-	if (elem->value < *num)
-	{
-		*num = elem->value;
-		return (SUCCESS);
-	}
-	return (ERROR);
+	return (dstack->a->size);
 }
 
-int	double_stack_is_done(t_double_stack *dstack)
+int	double_stack_get_size_b(t_double_stack *dstack)
 {
-	int		num;
-	int		stt;
-	t_dll	*runner;
-
-	runner = dstack->a->lst;
-	if (runner && !runner->next)
-		return (TRUE);
-	num = runner->value;
-	stt = dll_iterate(runner->next, validate, &num);
-	return (SUCCESS == stt);
+	return (dstack->b->size);
 }

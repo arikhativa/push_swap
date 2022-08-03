@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_stack_push.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:07:39 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:46:09 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/03 16:47:32 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	double_stack_push_a_to_b(t_double_stack *dstack)
 
 	ft_printf("pb\n");
 	elem = stack_pop(dstack->a);
-	stack_push(dstack->b, elem);	
+	stack_push(dstack->b, elem);
 }
 
 void	double_stack_push_b_to_a(t_double_stack *dstack)
@@ -38,5 +38,5 @@ void	double_stack_push_b_to_a(t_double_stack *dstack)
 
 	ft_printf("pa\n");
 	elem = stack_pop(dstack->b);
-	stack_push(dstack->a, elem);	
+	stack_push(dstack->a, elem);
 }

@@ -6,13 +6,13 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 12:39:33 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:47:38 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_stack.h"
 
-static char *next_input(char *s)
+static char	*next_input(char *s)
 {
 	s = skip_sign(s);
 	s = skip_digit(s);

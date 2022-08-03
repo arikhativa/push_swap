@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:25:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:13:31 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:46:50 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	is_line_valid(char *s)
 int	input_is_valid(int size, char **tab)
 {
 	int	i;
-	int stt;
+	int	stt;
 
 	if (2 > size)
 		return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 09:19:48 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:43:58 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:46:25 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	push_half(t_double_stack *dstack)
 	}
 }
 
-static inline void	handle_last_elem(t_double_stack *dstack, t_first_round_meta *m)
+static inline void	handle_last_elem(t_double_stack *dstack, \
+	t_first_round_meta *m)
 {
 	if (m->a_size == 1)
 	{
@@ -43,7 +44,8 @@ static inline void	handle_last_elem(t_double_stack *dstack, t_first_round_meta *
 	}
 }
 
-static inline void	rotate_if_needed(t_double_stack *dstack, t_first_round_meta *m)
+static inline void	rotate_if_needed(t_double_stack *dstack, \
+	t_first_round_meta *m)
 {
 	handle_last_elem(dstack, m);
 	if (m->a_flip && m->b_flip)

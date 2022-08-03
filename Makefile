@@ -19,7 +19,6 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 CFLAGS = -c -Wall -Werror -Wextra -I$(LIBFT_HEAD_DIR) -I$(HEAD_DIR) -I$(FT_PRINTF_DIR)
-# CFLAGS = -Wall -Werror -Wextra
 LDFLAGS = -L$(LIBFT_DIR)
 LDLIBS = -lft
 
