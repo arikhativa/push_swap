@@ -40,7 +40,7 @@ test/6: $(NAME)
 	@./test/many.sh ./test/resource/all_6
 
 test/7: $(NAME)
-	@./test/many.sh ./test/resource/all_7
+	@./test/many.sh ./test/resource/many_7
 
 $(LIBFT):
 	@$(MAKE) all -sC ./$(LIBFT_DIR)

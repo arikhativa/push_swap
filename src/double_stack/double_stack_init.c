@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 12:15:21 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/03 12:39:33 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ int	parse_line(t_double_stack *dstack, char *s)
 	s = push_swap_skip_space(s);
 	while (*s)
 	{
-		atoi_overflow(s, &num);
+		if (ERROR == atoi_overflow(s, &num))
+			return (ERROR);
 		elem = dll_create_elem(num);
 		if (!elem)
-		{
-			stack_free(tmp_stack);
 			return (ERROR);
-		}
 		stack_push(tmp_stack, elem);
 		s = next_input(s);
 	}
@@ -55,7 +53,8 @@ int	double_stack_init(t_double_stack *dstack, int size, char **tab)
 	i = size - 1;
 	while (i)
 	{
-		parse_line(dstack, tab[i]);
+		if (ERROR == parse_line(dstack, tab[i]))
+			return (ERROR);
 		--i;
 	}
 	if (TRUE == double_stack_is_duplicates(dstack))

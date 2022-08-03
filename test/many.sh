@@ -1,8 +1,13 @@
 #!/bin/bash
 
-EXEC=push_swap
 CHECKER=checker_linux
+cat /etc/os-release > /dev/null 2>&1 
+if [ $? -eq "1" ]
+then
+	CHECKER=checker_Mac
+fi
 
+EXEC=push_swap
 RES_DIR=./test/resource
 
 FILE=$1

@@ -50,3 +50,19 @@ printf "\nlimits\n"
 # lagestest
 ./$EXEC 2147483647 | ./$CHECKER 2147483647
 ./$EXEC 2147483647 2147483646 2147483640 | ./$CHECKER 2147483647 2147483646 2147483640
+
+printf "\nerrors\n"
+AAA=(a 1a " a " "123 222222222222222222")
+i=0
+while [ $i -ne ${#AAA[@]} ]
+do
+	STT=$(./$EXEC ${AAA[i]})
+	if [ $STT == "Error" ]
+	then
+		printf "OK\n"
+	else
+		printf "KO\n"
+	fi
+	i=$((i+1))
+done
+true
