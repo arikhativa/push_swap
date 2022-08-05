@@ -45,6 +45,7 @@ printf "\nfour\n"
 
 printf "\nlimits\n"
 # smallest
+./$EXEC "-2147483648 " | ./$CHECKER "-2147483648 "
 ./$EXEC -2147483648 | ./$CHECKER -2147483648
 ./$EXEC -2147483648 -2147483647 -2147483640 | ./$CHECKER -2147483648 -2147483647 -2147483640
 # lagestest
@@ -52,11 +53,11 @@ printf "\nlimits\n"
 ./$EXEC 2147483647 2147483646 2147483640 | ./$CHECKER 2147483647 2147483646 2147483640
 
 printf "\nerrors\n"
-AAA=(a 1a " a " "123 222222222222222222" "")
+AAA=(a 1a " a " "123 222222222222222222" "" "-2147483648a" "-21474836480" "-2147483650")
 i=0
 while [ $i -ne ${#AAA[@]} ]
 do
-	STT=$(./$EXEC ${AAA[i]})
+	STT=$(./$EXEC "${AAA[i]}" 2>&1)
 	if [ $STT == "Error" ]
 	then
 		printf "OK\n"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:46:21 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:31:01 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 13:21:06 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "double_stack.h"
 
-typedef struct	s_first_round_meta
+typedef struct s_first_round_meta
 {
 	int	a_size;
 	int	a_flip;
@@ -23,7 +23,7 @@ typedef struct	s_first_round_meta
 	int	b_flip;
 }				t_first_round_meta;
 
-typedef struct	s_sort_meta
+typedef struct s_sort_meta
 {
 	int	a_size;
 	int	a_run_size;
@@ -32,9 +32,10 @@ typedef struct	s_sort_meta
 }				t_sort_meta;
 
 // generic
-typedef void (*t_handle_push)(t_double_stack *dstack, t_sort_meta *m);
+typedef void	(*t_handle_push)(t_double_stack *dstack, t_sort_meta *m);
 
-void	generic_push(t_double_stack *dstack, int round,	t_handle_push f, t_sort_meta *m);
+void	generic_push(t_double_stack *dstack, int round,	t_handle_push f, \
+	t_sort_meta *m);
 int		get_min(int a, int b);
 
 // sort_meta

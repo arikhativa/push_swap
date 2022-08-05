@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi_overflow.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:21:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:01:11 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 13:06:20 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static char	*skip_get_sign(char *s, int *sign)
 	*sign = 1;
 	if (*s == '-' || *s == '+')
 	{
+		if (!ft_isdigit(*(s + 1)))
+			return (NULL);
 		if (*s == '-')
 			*sign *= -1;
 		++s;
@@ -58,12 +60,14 @@ int	atoi_overflow(const char *nptr, int *ret)
 	s = (char *)nptr;
 	num = 0;
 	s = push_swap_skip_space(s);
-	if (0 == ft_strncmp("-2147483648", s, __INT_MAX__))
+	if ((0 == ft_strncmp("-2147483648", s, 11)) && !ft_isdigit(*(s + 11)))
 	{
 		*ret = -2147483648;
 		return (SUCCESS);
 	}
 	s = skip_get_sign(s, &sign);
+	if (NULL == s)
+		return (ERROR);
 	if (ERROR == inc(s, &num))
 		return (ERROR);
 	*ret = num * sign;

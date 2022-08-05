@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:44:25 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 13:18:06 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ void	stack_swap_top(t_stack *s);
 // get
 t_dll	**stack_get_list(t_stack *s);
 int		stack_get_size(t_stack *s);
-int	stack_get_top_value(t_stack *s);
-int	stack_get_second_to_top_value(t_stack *s);
-int	stack_is_empty(t_stack *s);
+int		stack_get_top_value(t_stack *s);
+int		stack_get_second_to_top_value(t_stack *s);
+int		stack_is_empty(t_stack *s);
 
 // print
 void	stack_print(t_stack *s);
-
-
 
 #endif

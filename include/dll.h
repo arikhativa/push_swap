@@ -18,24 +18,24 @@
 
 # include "define.h"
 
-typedef	struct	s_dll	t_dll;
+typedef struct s_dll	t_dll;
 
-typedef struct	s_dll
+typedef struct s_dll
 {
 	int		value;
 	t_dll	*next;
 	t_dll	*prev;
 }				t_dll;
 
-typedef int (*t_dll_iter)(t_dll *elem, void *param);
+typedef int				(*t_dll_iter)(t_dll *elem, void *param);
 
-int	dll_iterate(t_dll *lst, t_dll_iter f, void *param);
+int		dll_iterate(t_dll *lst, t_dll_iter f, void *param);
 
 // get
 t_dll	*dll_get_last_elem(t_dll *lst);
 
 // is
-int	dll_is_last_elem(t_dll *elem);
+int		dll_is_last_elem(t_dll *elem);
 
 // print
 void	dll_print(t_dll *lst);

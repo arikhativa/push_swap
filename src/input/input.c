@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:25:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:46:50 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 13:06:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 
 static int	is_line_valid(char *s)
 {
+	int	num;
+
 	s = push_swap_skip_space(s);
 	if (!*s)
 		return (FALSE);
 	while (*s)
 	{
+		if (ERROR == atoi_overflow(s, &num))
+			return (FALSE);
 		s = skip_sign(s);
 		s = skip_digit(s);
 		if (*s && !push_swap_is_space(*s))
