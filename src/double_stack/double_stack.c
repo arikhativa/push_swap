@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   double_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:00:46 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 12:39:06 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:15:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_stack.h"
-#include "libft.h"
 
 t_double_stack	*double_stack_create(void)
 {

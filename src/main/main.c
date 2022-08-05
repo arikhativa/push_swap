@@ -6,16 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:33:53 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/05 13:17:44 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:17:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "define.h"
-#include "dll.h"
-#include "double_stack.h"
-#include "sort.h"
-#include "input.h"
-#include "libft.h"
+#include "main.h"
 
 int	main(int ac, char **av)
 {

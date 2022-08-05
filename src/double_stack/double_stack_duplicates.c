@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   duplicates.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 10:50:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 12:15:24 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:09:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	validate(t_dll *elem, void *param)
 
 int	double_stack_is_duplicates(t_double_stack *dstack)
 {
-	int		num;
-	int		stt;
-	t_dll	*runner;
+	int				num;
+	register int	stt;
+	register t_dll	*runner;
 
 	runner = dstack->a->lst;
 	if (runner && !runner->next)

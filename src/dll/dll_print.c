@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dll_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:09:36 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:49:21 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:14:56 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "dll.h"
 
-void	dll_print(t_dll *lst)
+void	dll_print(register t_dll *lst)
 {
 	ft_printf("[ ");
 	while (lst)

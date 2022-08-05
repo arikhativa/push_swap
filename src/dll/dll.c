@@ -6,12 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:47:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:15:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dll.h"
-#include "libft.h"
 
 t_dll	*dll_create_elem(int value)
 {
@@ -30,7 +29,7 @@ void	dll_free_elem(t_dll *elem)
 	free(elem);
 }
 
-void	dll_clear_list(t_dll *lst)
+void	dll_clear_list(register t_dll *lst)
 {
 	t_dll	*next;
 

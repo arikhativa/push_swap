@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   first_round.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 09:19:48 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:46:25 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:12:05 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push_half(t_double_stack *dstack)
 {
-	int	size;
-	int	i;
+	register int	size;
+	register int	i;
 
 	i = 0;
 	size = double_stack_get_size_a(dstack);

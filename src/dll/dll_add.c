@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:03:46 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/26 13:56:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:11:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	dll_add_before(t_dll *lst, t_dll *new_elem)
 
 void	dll_add_last(t_dll **lst, t_dll *new_elem)
 {
-	t_dll	*elem;
-	t_dll	*next;
+	t_dll			*elem;
+	register t_dll	*next;
 
 	if (!(*lst))
 	{

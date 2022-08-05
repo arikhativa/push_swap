@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:56:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:27:56 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:11:14 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	get_min(int a, int b)
 void	generic_push(t_double_stack *dstack, int round,	t_handle_push f, \
 	t_sort_meta *m)
 {
-	int	i;
+	register int	i;
 
 	i = 0;
 	while ((i < round) && (m->a_run_size || m->b_run_size))

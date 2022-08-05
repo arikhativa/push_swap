@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/05 13:18:06 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:20:28 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define STACK_H
 
 # include <stdlib.h>
+
+# include "define.h"
+# include "ft_printf.h"
+# include "libft.h"
 # include "dll.h"
 
 typedef struct s_stack

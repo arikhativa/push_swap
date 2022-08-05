@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+# include "ft_printf.h"
+# include "libft.h"
 # include "define.h"
 
 typedef struct s_dll	t_dll;

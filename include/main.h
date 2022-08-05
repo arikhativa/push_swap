@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_stack_print.c                               :+:      :+:    :+:   */
+/*   main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 14:12:59 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/05 14:15:40 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/05 14:17:02 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/05 14:17:45 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_stack.h"
+#ifndef MAIN_H
+# define MAIN_H
 
-void	double_stack_print(t_double_stack *dstack)
-{
-	ft_printf("A: ");
-	stack_print(dstack->a);
-	ft_printf("B: ");
-	stack_print(dstack->b);
-	ft_printf("\n");
-}
+#include "double_stack.h"
+#include "define.h"
+#include "sort.h"
+#include "input.h"
+#include "libft.h"
+
+#endif

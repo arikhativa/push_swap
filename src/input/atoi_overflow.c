@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:21:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/05 13:06:20 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:10:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static char	*skip_get_sign(char *s, int *sign)
 	return (s);
 }
 
-int	inc(const char *s, int *ret)
+int	inc(register const char *s, int *ret)
 {
-	int	num;
-	int	tmp;
+	register int	num;
+	register int	tmp;
 
 	num = 0;
 	tmp = 0;

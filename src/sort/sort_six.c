@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_six.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 13:42:15 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:27:00 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:18:48 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ void	sort_six(t_double_stack *dstack)
 	if (4 == i)
 		double_stack_swap_a(dstack);
 	else if (3 == i)
-	{
-		double_stack_rotate_a(dstack);
-		double_stack_rotate_a(dstack);
-	}
+		double_stack_rotate_a_twice(dstack);
 	else if (2 == i)
 		index_two(dstack);
 	else if (1 == i)

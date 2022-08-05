@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:26:07 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:14:30 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:20:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
-#include "libft.h"
-#include "dll.h"
 
 t_stack	*stack_create(void)
 {

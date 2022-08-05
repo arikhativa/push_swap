@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 10:29:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/02 10:32:09 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:10:29 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int	push_swap_is_space(char c)
 			c == '\f' || c == '\r' || c == ' ');
 }
 
-char	*push_swap_skip_space(char *s)
+char	*push_swap_skip_space(register char *s)
 {
 	while (push_swap_is_space(*s))
 		++s;
 	return (s);
 }
 
-char	*skip_digit(char *s)
+char	*skip_digit(register char *s)
 {
 	while (ft_isdigit(*s))
 		++s;

@@ -6,15 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:25:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/05 13:06:39 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/05 14:16:29 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "define.h"
 #include "input.h"
 
-static int	is_line_valid(char *s)
+static int	is_line_valid(register char *s)
 {
 	int	num;
 

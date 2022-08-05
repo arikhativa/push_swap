@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_stack_init.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:20:01 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/03 16:47:38 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:09:35 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*next_input(char *s)
 	return (s);
 }
 
-int	parse_line(t_double_stack *dstack, char *s)
+int	parse_line(t_double_stack *dstack, register char *s)
 {
 	int		num;
 	t_dll	*elem;
@@ -48,7 +48,7 @@ int	parse_line(t_double_stack *dstack, char *s)
 
 int	double_stack_init(t_double_stack *dstack, int size, char **tab)
 {
-	int	i;
+	register int	i;
 
 	i = size - 1;
 	while (i)

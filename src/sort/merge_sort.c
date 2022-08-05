@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:35:45 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/03 16:27:46 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:11:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	h_push_a(t_double_stack *dstack, t_sort_meta *m)
 void	apply_round(t_double_stack *dstack, int round)
 {
 	t_sort_meta	meta;
-	int			c;
+	int						c;
 
 	sort_meta_init(&meta, dstack, round);
 	c = 0;
@@ -83,8 +83,8 @@ void	apply_round(t_double_stack *dstack, int round)
 
 void	merge_sort(t_double_stack *dstack)
 {
-	int	size;
-	int	round;
+	register int	size;
+	register int	round;
 
 	size = double_stack_get_size_a(dstack);
 	sort_first_round(dstack);

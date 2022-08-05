@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dll_get.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:54:54 by yrabby            #+#    #+#             */
-/*   Updated: 2022/07/27 13:56:33 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/05 14:05:34 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_dll	*dll_get_last_elem(t_dll *lst)
 {
-	t_dll	*next;
+	register t_dll	*next;
 
 	if (!lst)
 		return (NULL);
